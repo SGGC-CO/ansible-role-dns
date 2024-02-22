@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  vars_files:
+    - credentials_{{cred_env}}.yml
+  roles:
+    - ansible-role-dns

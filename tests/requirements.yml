@@ -1,0 +1,5 @@
+---
+roles:
+  - name: ansible-role-dns
+    src: https://github.com/SGGC-CO/ansible-role-dns.git
+    version: main

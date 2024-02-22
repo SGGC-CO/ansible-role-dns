@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-role-dns
+- name: create record in cloudflare
+  cloudflare_dns:
+    api_token: "{{ cf_dns_api_token }}"
+    domain: "{{ hostvars['localhost']['domain'] }}"
+    record: "{{item.sub_domain}}"
+    type: "{{item.type}}"
+    value: "{{ item.ip|hostvars['localhost']['raw_server'] }}"
+  loop: "{{ dns_record }}"
+  when: dns_provider == "cloudflare"
+
+- name: create record in route53
+  route53:
+    aws_access_key: "{{ route53_access_key }}"
+    aws_secret_key: "{{ route53_secret_key }}"
+    zone: "{{ hostvars['localhost']['domain'] }}"
+    record: "{{ item.sub_domain }}"
+    type: "{{ item.type }}"
+    ttl: 300
+    value: "{{ item.ip|hostvars['localhost']['raw_server'] }}"
+  loop: "{{ dns_record }}"
+  when: dns_provider == "route53"

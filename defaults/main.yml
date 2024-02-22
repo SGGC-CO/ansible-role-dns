@@ -1,0 +1,14 @@
+---
+# defaults file for ansible-role-dns
+# Required variables
+dns_provider: "cloudflare"
+cf_dns_api_token: "1234567890"
+
+# Optional variables
+route53_access_key: "123456789"
+route53_secret_key: "123456789"
+
+# List of records to create
+dns_record:
+  - { type: "A", sub_domain: "api", ip: "1.2.3.4" }
+  - { type: "A", sub_domain: "doc" }

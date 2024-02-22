@@ -1,0 +1,4 @@
+cred_env: "development"
+dns_record:
+  - { type: "A", sub_domain: "api", ip: "1.2.3.4" }
+  - { type: "A", sub_domain: "doc" }
