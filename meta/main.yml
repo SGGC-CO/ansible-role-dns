@@ -6,6 +6,8 @@ galaxy_info:
   company: Software Genesis Group
   license: "license (BSD, MIT)"
   min_ansible_version: 2.1
+  github_branch: main
+  github_repo: https://github.com/SGGC-CO/ansible-role-dns.git
   platforms:
     - name: Ubuntu
       versions:
